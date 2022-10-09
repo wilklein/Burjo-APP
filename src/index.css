@@ -11,6 +11,12 @@ body {
 
 .font-size {
   font-size: 0.3rem;
+
+}
+
+.category-aktif {
+  background-color: #06283D;
+  color: white;
 }
 
 code {

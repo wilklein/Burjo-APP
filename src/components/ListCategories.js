@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Col } from 'react-bootstrap'
 import axios from 'axios';
 import {API_URL} from "../utils/Constants";
-import {ListGroup,  } from "react-bootstrap";
+import {ListGroup} from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils,faCoffee, faCheese } from "@fortawesome/free-solid-svg-icons";
 
@@ -41,14 +41,16 @@ export default class ListCategories extends Component {
     // merupakan data kiriman dari app.js
     const {changeCategorie,categorieYangDipilih} = this.props
     return (
-      <Col md={2} mt={6}>
-      <ListGroup as="ul">
+      <Col md={3} mt={5}>
+      <ListGroup as="ul" className='px-2'>
       <ListGroup.Item as="li" active>List Kategori Produk</ListGroup.Item>
        {categories && categories.map((categorie)=>(
         // mengirim sebuah perintah untuk nantinya dikirm ke app.js untuk di eksekuisi disana dengan fungsi
         //onclick jadi ketika user mengklik pilihan menu isi value akan disi sesuai dengan categorie.nama 
-        //lalu nilai value ini di kirim ke app.js
-         <ListGroup.Item as="li" key={categorie.id} onClick={()=> changeCategorie(categorie.nama)}>
+        //lalu nilai value ini di kirim ke app.js 
+        //lalu jika category yang dipilih sama dengan categori nama maka akan ada css aktif
+         <ListGroup.Item as="li" key={categorie.id} onClick={()=> changeCategorie(categorie.nama)} 
+         className={categorieYangDipilih === categorie.nama && "category-aktif"} style={ {cursor:'pointer' }}>
           {/* pemanggilan icons */}
          <h6> <Icon nama={categorie.nama}/>{categorie.nama}</h6> 
           </ListGroup.Item>

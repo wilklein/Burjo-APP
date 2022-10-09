@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./index.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Row } from 'react-bootstrap';
 import {Hasil,ListCategories, Menus} from "../../components";
